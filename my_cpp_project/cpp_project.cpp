@@ -1,36 +1,194 @@
-#include<iostream>
+// 생성자 : 객체가 생성될때 자동으로 호출되는 함수
+// 소멸자 : 객체가 소멸될 때 자동으로 호출되는 함수
+
+
+#include <iostream>
 
 using namespace std;
 
-int n; //전역 변수
+class myclass{
 
-void set (){
-    ::n = 10;
-}
+ public:
+    myclass(){// 생성자
 
-namespace ggh {
-    int n;
-    void set(){
-        ggh::n = 20;
+        cout << "생성자가 호출 되었다.!" << endl;
     }
-}
-
-namespace bmk {
-    int n;
-    void set(){
-        bmk::n = 30;
+    ~myclass() {// 소멸자
+        cout << "소멸자가 호출 되었다.!" << endl;
     }
-}
+};
 
+// myclass globalOJ;
+
+void testlocalOJ(){
+    cout << "testlocalOJ function start !!" << endl;
+    myclass localOJ;
+    cout << "testlocalOJ function end !!" << endl;
+}
 int main(){
-    ::set();
-    ggh::set();
-    bmk::set();
-
-    cout << ::n << endl;
-    cout << ggh::n << endl;
-    cout << bmk::n << endl;
+    cout << "main start!!" << endl;
+    myclass testlocalOJ();
+    cout << "main end!!" << endl;    
 }
+    
+
+
+
+// //this pointer   ===========================================================================================
+
+// #include <iostream>
+
+// using namespace std;
+
+// class myclass{
+// public:
+//     void PrintThis(){
+//         cout << "나의 주소는 " << this << endl;
+//     }
+// };
+
+// int main(){
+//     myclass a, b;
+
+//     cout << "a의 주소는 " << &a << endl;
+//     cout << "b의 주소는 " << &b << endl;
+//     a.PrintThis();
+//     b.PrintThis();
+// }
+
+
+
+// //struct
+// //class = 자료저장(변수) + 자료처리(함수)
+// //클래스(타입) : 특정한 용도를 수행하기 위한 변수와 함수를 모아 둔 틀(자료형)
+// // 객체(object) : 그 틀을 이용하여 찍어낸 개체(변수, 메모리 상의 공간)
+// #include <iostream>
+// // 
+// using namespace std;
+
+// //private, protected, public
+
+// class TV{
+// private:
+//     bool power_on;
+//     int channel;
+//     int volume;
+
+
+// public:
+//     void on(){
+//         power_on = true;
+//         cout << "TV_on" << endl;
+//     }
+
+//     void off(){
+//         power_on = false;
+//         cout << "TV_off" << endl;
+//     }
+
+//     void setchannel(int cnl){
+//         if(cnl >= 1 && cnl <= 999){
+//             channel = cnl;
+//             cout << "채널을 " << cnl << "으로 바꿨습니다." << endl;
+//         }
+//     }
+
+//     void setvolume(int vol){
+//         if(vol >- 0 && vol <= 100){
+//             volume = vol;
+//             cout << "볼륨을 " << vol << "으로 바꿨습니다." << endl;
+//         }
+//     }
+// };
+
+// int main(){
+//     TV lg;
+//     lg.off();
+//     lg.setchannel(10);
+//     lg.setvolume(50);
+//     lg.setvolume(-90);    
+// }
+
+
+
+
+//namespace==========================================================================================
+// #include<iostream>
+
+// using namespace std;
+
+// int n;
+
+// void set(){
+//     n = 10;
+// }
+
+// namespace ggh {
+//     int n;
+//     void set();
+//     namespace bmk {
+//         int n;
+//         void set();
+//     }
+// }
+
+// int main(){
+//     ::set();
+//     ggh::set();
+//     ggh::bmk::set();
+
+//     cout << ::n << endl;
+//     cout << ggh::n << endl;
+//     cout << ggh::bmk::n << endl;
+// }
+
+// namespace ggh {
+//     void ggh::set(){
+//         n = 20; 
+//     }
+// }
+
+// void ggh::bmk::set(){
+//     n = 30;
+// }
+
+
+
+
+
+// #include<iostream>
+
+// using namespace std;
+
+// int n; //전역 변수
+
+// void set (){
+//     ::n = 10; //명시적 전역 변수 
+// }
+
+// namespace ggh {
+//     int n;
+//     void set(){
+//         ggh::n = 20;//명시적 
+//     }
+// }
+
+// namespace bmk {
+//     int n;
+//     void set(){
+//         bmk::n = 30;//명시적 
+//     }
+// }
+
+// int main(){
+//     ::set();
+//     ggh::set();//명시적 
+//     bmk::set();//명시적 
+
+//     cout << ::n << endl;
+//     cout << ggh::n << endl;
+//     cout << bmk::n << endl;
+// }
 
 
 // #include<iostream>
