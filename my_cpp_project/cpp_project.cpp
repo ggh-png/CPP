@@ -2,16 +2,68 @@
 
 using namespace std;
 
-int main(){
-    int arr[2][3] = {{1,2,3}, {4,5,6}};
-    
-    for(int* n : arr){
-        for(int j = 0; j < 3; j++){
-        cout << n[j] << ' ';    
-        }
-        cout << endl;
+int n; //전역 변수
+
+void set (){
+    ::n = 10;
+}
+
+namespace ggh {
+    int n;
+    void set(){
+        ggh::n = 20;
     }
 }
+
+namespace bmk {
+    int n;
+    void set(){
+        bmk::n = 30;
+    }
+}
+
+int main(){
+    ::set();
+    ggh::set();
+    bmk::set();
+
+    cout << ::n << endl;
+    cout << ggh::n << endl;
+    cout << bmk::n << endl;
+}
+
+
+// #include<iostream>
+
+// using namespace std;
+
+// int main(){
+//     int arr[2][3] = {{1,2,3}, {4,5,6}};
+
+//     for (int (&ln)[3] : arr){
+//         for (int &col : ln){
+//             cout << col << ' ';
+//         }
+//         cout << endl;
+//     }
+// }
+
+
+// C 느낌=======
+// #include<iostream>
+
+// using namespace std;
+
+// int main(){
+//     int arr[2][3] = {{1,2,3}, {4,5,6}};
+    
+//     for(int* n : arr){
+//         for(int j = 0; j < 3; j++){
+//         cout << n[j] << ' ';    
+//         }
+//         cout << endl;
+//     }
+// }
 
 
 //7부 종합문제 1 - 1 
